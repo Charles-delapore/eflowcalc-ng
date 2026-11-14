@@ -87,22 +87,22 @@ def calculator(sfcs, datetimes, streamflows, drainage_area,
     >>> flows = numpy.random.uniform(3, 50, 3652)
     >>> import eflowcalc as efc
     >>> print(efc.calculator(efc.ma1, times, flows, drainage_area=147.))
-    [26.29431]
+    [26.29430967]
     >>> print(efc.calculator([efc.ma1, efc.dh7], times, flows, drainage_area=147.))
-    [[26.29431  ]
-     [ 2.8495195]]
+    [[26.29430967]
+     [ 2.84951942]]
 
     Computations on multiple streamflow series at once are possible.
 
     >>> flows = numpy.random.uniform(3, 50, (3652, 3))
     >>> print(efc.calculator([efc.ma1, efc.dh7], times, flows, drainage_area=147.))
-    [[26.548698  26.465912  26.271872 ]
-     [ 2.4092593  2.8745487  2.2962854]]
+    [[26.54869817 26.46591255 26.2718724 ]
+     [ 2.40925924  2.8745487   2.29628538]]
     >>> flows = numpy.random.uniform(3, 50, (3, 3652))
     >>> print(efc.calculator([efc.ma1, efc.dh7], times, flows, drainage_area=147., axis=1))
-    [[26.409723   4.8691554]
-     [26.398853   3.6545587]
-     [26.251245   3.4656363]]
+    [[26.40972386  4.86915559]
+     [26.39885302  3.65455866]
+     [26.25124526  3.46563615]]
 
     """
     # check the format of the different arguments given,
@@ -114,7 +114,12 @@ def calculator(sfcs, datetimes, streamflows, drainage_area,
         raise TypeError('datetimes array must contain datetimes')
     if not datetimes.ndim == 1:
         raise ValueError('datetimes array must be uni-dimensional')
-    streamflows = np.asarray(streamflows)
+    streamflows = np.asarray(streamflows, dtype=np.float64)
+    # NOTE (eflowcalc-ng): promote to float64 up front. The sample data
+    # and many real-world files store flows as float32; computing and
+    # returning in float32 silently truncated results to ~7 significant
+    # digits (e.g. ma39 57.374415 instead of 57.374416). float64 costs
+    # nothing measurable here (one series is a few MB at most).
     if not datetimes.shape:
         raise TypeError('streamflows must be an array')
     if not np.issubdtype(streamflows.dtype, np.number):
@@ -245,13 +250,13 @@ def calculator(sfcs, datetimes, streamflows, drainage_area,
     # calculate the requested streamflow characteristic(s)
     if hasattr(sfcs, '__iter__'):
         calc_sfc = np.zeros((len(sfcs), my_streamflow.shape[1]),
-                            dtype=np.float32)
+                            dtype=np.float64)
         calc_sfc[:] = np.nan
         for i, sfc in enumerate(sfcs):
             calc_sfc[i, :] = sfc(my_streamflow, my_time, my_masks_hy,
                                  drainage_area)
     else:
-        calc_sfc = np.zeros((1, my_streamflow.shape[1]), dtype=np.float32)
+        calc_sfc = np.zeros((1, my_streamflow.shape[1]), dtype=np.float64)
         calc_sfc[:] = np.nan
         calc_sfc[0, :] = sfcs(my_streamflow, my_time, my_masks_hy,
                               drainage_area)
