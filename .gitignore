@@ -3,3 +3,8 @@
 
 # ignore documentation built because copied in docs/ root already
 docs/_doc_build
+
+# build artifacts
+build/
+*.egg-info/
+dist/
