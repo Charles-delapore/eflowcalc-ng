@@ -195,13 +195,25 @@ class TestStreamflowCharacteristics(unittest.TestCase):
     }
 
     def test_each_function(self):
+        # NOTE (eflowcalc-ng): the sample data file ships flow values as
+        # float32 while the reference values below are float64. The
+        # resulting rounding noise reaches a relative deviation of
+        # 1.37e-6 (worst case, ma40) across all 159 indicators on
+        # numpy 1.26 / Python 3.12, so the previous absolute check
+        # (assert_almost_equal, 5e-7 absolute) was magnitude-blind:
+        # too strict for values of order 10-100 and too loose for
+        # values of order 1e-3. A relative tolerance of 1e-5 keeps
+        # ~7x headroom over the observed noise while still catching
+        # any genuine algorithmic regression (which would deviate by
+        # orders of magnitude more). See REFACTORING.md, Tier 1.
         for sfc in self.expected.keys():
             with self.subTest(streamflow_characteristic=sfc):
-                numpy.testing.assert_almost_equal(
+                numpy.testing.assert_allclose(
                     getattr(eflowcalc, sfc)(
                         self.flows, self.datetimes,
                         self.hydro_years, self.drainage_area)[0],
-                    self.expected[sfc]
+                    self.expected[sfc],
+                    rtol=1e-5, atol=1e-8
                 )
 
 
