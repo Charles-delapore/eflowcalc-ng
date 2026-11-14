@@ -24,6 +24,18 @@ A streamflow characteristics calculator in Python
    :target: https://github.com/ThibHlln/eflowcalc/actions/workflows/tests.yml
    :alt: GitHub Actions Test Workflow Status
 
+.. rubric:: Installation
+
+.. code-block:: bash
+
+   pip install eflowcalc-ng
+
+The import name stays ``eflowcalc``:
+
+.. code-block:: python
+
+   import eflowcalc as efc
+
 `eflowcalc` is an open-source `calculator` of ecological streamflow
 characteristics in Python. It is licensed under GNU GPL-3.0.
 The package currently gives the Python scientific community access
