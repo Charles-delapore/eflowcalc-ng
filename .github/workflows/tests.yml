@@ -18,38 +18,25 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
-    defaults:
-      run:
-        shell: bash -l {0}
-
     steps:
 
       - name: check out repository
         uses: actions/checkout@v4
 
-      - name: set up conda environment
-        uses: conda-incubator/setup-miniconda@v3
+      - name: set up Python
+        uses: actions/setup-python@v5
         with:
-          activate-environment: testing-env
           python-version: ${{ matrix.python-version }}
-          auto-update-conda: true
-          mamba-version: "*"
-          channels: conda-forge
-          channel-priority: true
 
       - name: install package dependencies
         run: |
-          mamba install numpy
-          mamba install pandas
-
-      - name: install package test dependencies
-        run: |
-          mamba install netCDF4
+          python -m pip install --upgrade pip
+          python -m pip install numpy pandas netCDF4
 
       - name: install package
-        run: |
-          pip install -e .
+        run: python -m pip install -e .
 
       - name: run all tests
         run: |
-          (cd ./tests && python run_all_tests.py)
+          cd tests
+          python run_all_tests.py
