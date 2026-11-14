@@ -1,8 +1,18 @@
 A streamflow characteristics calculator in Python
 -------------------------------------------------
 
-.. image:: https://img.shields.io/pypi/v/eflowcalc?color=blue
-   :target: https://pypi.python.org/pypi/eflowcalc
+.. note::
+   **eflowcalc-ng — maintained fork.** This is a fork of
+   `ThibHlln/eflowcalc <https://github.com/ThibHlln/eflowcalc>`_
+   (v0.1.0, last release 2021-04-26; upstream inactive since).
+   The fork keeps the original GPLv3 license, copyright and
+   attribution; the import name stays ``eflowcalc``, only the
+   distribution (PyPI) name changed to ``eflowcalc-ng`` because
+   ``eflowcalc`` is taken. Changes are listed in ``CHANGELOG.md``
+   and ``REFACTORING.md``.
+
+.. image:: https://img.shields.io/pypi/v/eflowcalc-ng?color=blue
+   :target: https://pypi.python.org/pypi/eflowcalc-ng
    :alt: PyPI Version
 .. image:: https://zenodo.org/badge/153001813.svg
    :target: https://zenodo.org/badge/latestdoi/153001813

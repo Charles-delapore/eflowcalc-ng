@@ -9,7 +9,7 @@ with open('eflowcalc/version.py') as fv:
     exec(fv.read())
 
 setup(
-    name='eflowcalc',
+    name='eflowcalc-ng',
 
     version=__version__,
 
@@ -17,11 +17,12 @@ setup(
     long_description=long_desc,
     long_description_content_type="text/x-rst",
 
-    download_url="https://pypi.python.org/pypi/eflowcalc",
+    download_url="https://pypi.python.org/pypi/eflowcalc-ng",
     project_urls={
-        "Bug Tracker": "https://github.com/thibhlln/eflowcalc/issues",
-        "Source Code": "https://github.com/thibhlln/eflowcalc",
+        "Bug Tracker": "https://github.com/Charles-delapore/eflowcalc-ng/issues",
+        "Source Code": "https://github.com/Charles-delapore/eflowcalc-ng",
         "Documentation": "https://thibhlln.github.io/eflowcalc",
+        "Original Repository": "https://github.com/ThibHlln/eflowcalc",
     },
 
     author='Thibault Hallouin',
