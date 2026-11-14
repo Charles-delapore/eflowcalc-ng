@@ -11,24 +11,18 @@ A streamflow characteristics calculator in Python
    ``eflowcalc`` is taken. Changes are listed in ``CHANGELOG.md``
    and ``REFACTORING.md``.
 
-.. image:: https://img.shields.io/pypi/v/eflowcalc-ng?color=blue
-   :target: https://pypi.python.org/pypi/eflowcalc-ng
-   :alt: PyPI Version
-.. image:: https://zenodo.org/badge/153001813.svg
-   :target: https://zenodo.org/badge/latestdoi/153001813
-   :alt: DOI
 .. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
    :target: https://www.gnu.org/licenses/gpl-3.0
    :alt: License: GPL v3
-.. image:: https://img.shields.io/github/workflow/status/ThibHlln/eflowcalc/Tests?label=tests
-   :target: https://github.com/ThibHlln/eflowcalc/actions/workflows/tests.yml
+.. image:: https://img.shields.io/github/actions/workflow/status/Charles-delapore/eflowcalc-ng/tests.yml?branch=main&label=tests
+   :target: https://github.com/Charles-delapore/eflowcalc-ng/actions/workflows/tests.yml
    :alt: GitHub Actions Test Workflow Status
 
 .. rubric:: Installation
 
 .. code-block:: bash
 
-   pip install eflowcalc-ng
+   pip install "eflowcalc-ng @ git+https://github.com/Charles-delapore/eflowcalc-ng.git"
 
 The import name stays ``eflowcalc``:
 
