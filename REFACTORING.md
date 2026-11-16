@@ -91,3 +91,10 @@ algorithmic regression would deviate by orders of magnitude more.
 ## Tier 2 — Local Optimization (pending)
 
 ## Tier 3 — Underlying Logic & System Design (pending)
+
+## Maintenance status (2026-11-16)
+
+- CI: Python 3.10-3.13 on Linux, macOS and Windows (pip, no conda).
+- PyPI: `eflowcalc-ng` is not published; install from git until the first release.
+- Upstream: `ThibHlln/eflowcalc` v0.1.0 (2021-04-26); this fork keeps GPLv3,
+  the original copyright and attribution.
