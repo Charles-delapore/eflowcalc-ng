@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use eflowcalc-ng, please cite this repository and the original eflowcalc project."
+title: "eflowcalc-ng: a maintained fork of eflowcalc"
+abstract: "A calculator of streamflow characteristics in Python, updated for Python 3.10-3.13 and a pip-only CI. Import name stays eflowcalc."
+authors:
+  - family-names: "Hallouin"
+    given-names: "Thibault"
+  - family-names: "tianchunzhong"
+    alias: "Charles-delapore"
+version: "0.1.1"
+date-released: "2026-11-16"
+license: "GPL-3.0-only"
+repository-code: "https://github.com/Charles-delapore/eflowcalc-ng"
+url: "https://github.com/Charles-delapore/eflowcalc-ng"
+keywords:
+  - hydrology
+  - streamflow
+  - environmental flows
+  - python
