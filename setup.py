@@ -5,8 +5,10 @@ from setuptools import setup
 with open("README.rst", "r") as fh:
     long_desc = fh.read()
 
+_version_ns = {}
 with open('eflowcalc/version.py') as fv:
-    exec(fv.read())
+    exec(fv.read(), _version_ns)
+__version__ = _version_ns['__version__']
 
 setup(
     name='eflowcalc-ng',

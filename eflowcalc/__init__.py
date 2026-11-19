@@ -1,4 +1,4 @@
-# This file is part of EFlowCalc:
+﻿# This file is part of EFlowCalc:
 # A Calculator of Ecological Streamflow Characteristics
 # Copyright (C) 2020  Thibault Hallouin (1)
 #
@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with EFlowCalc. If not, see <http://www.gnu.org/licenses/>.
 
-from .eflowcalc import calculator
+from .eflowcalc import calculator as calculator
 
 from .flow_magnitude import (
     ma1, ma2, ma3, ma4, ma5, ma6, ma7, ma8, ma9, ma10, ma11, ma12, ma13, ma14,
@@ -44,7 +44,7 @@ from .flow_rate_change import (
     ra1, ra2, ra3, ra4, ra5, ra6, ra7, ra8, ra9
 )
 
-from .version import __version__
+from .version import __version__ as __version__
 
 #: Tuple containing all SFC functions on magnitude of flow events.
 magnitude = (
@@ -81,3 +81,4 @@ rate_change = (
 
 #: Tuple containing all SFC functions.
 everything = magnitude + frequency + duration + timing + rate_change
+

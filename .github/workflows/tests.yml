@@ -1,4 +1,4 @@
-name: Tests
+﻿name: Tests
 
 on:
   push:
@@ -31,7 +31,10 @@ jobs:
       - name: install package dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install numpy pandas netCDF4
+          python -m pip install numpy pandas netCDF4 ruff
+
+      - name: lint
+        run: ruff check .
 
       - name: install package
         run: python -m pip install -e .
