@@ -88,7 +88,11 @@ algorithmic regression would deviate by orders of magnitude more.
 
 ---
 
-## Tier 2 — Local Optimization (pending)
+## Tier 2 — Local Optimization (in progress)
+
+- **Ruff lint gate** (2026-11-19): correctness rules `E`/`F` (line length
+  ignored), generated Sphinx config excluded, package re-exports marked
+  explicitly. CI runs `ruff check .`.
 
 ## Tier 3 — Underlying Logic & System Design (pending)
 
