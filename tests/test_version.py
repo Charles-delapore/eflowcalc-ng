@@ -1,6 +1,5 @@
 ﻿"""Version smoke test."""
 
-import re
 import unittest
 
 import eflowcalc
