@@ -1,3 +1,4 @@
+import sys
 import unittest
 import doctest
 
@@ -14,4 +15,5 @@ if __name__ == '__main__':
     test_suite.addTests(doctest.DocTestSuite(eflowcalc.eflowcalc))
 
     runner = unittest.TextTestRunner(verbosity=2)
-    runner.run(test_suite)
+    result = runner.run(test_suite)
+    sys.exit(0 if result.wasSuccessful() else 1)
